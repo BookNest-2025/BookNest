@@ -10,3 +10,10 @@
     
 </body>
 </html>
+<?php
+    $password = "sanira123";
+
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    echo"$hash"
+?>
