@@ -52,14 +52,18 @@
   width: 100%;
 }
 
-.input-box i {
+.input-box button {
   color: var(--color-text-primary);
   font-size: 20px;
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.8;
+  right: 15px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 0 5px;
+  transition: 0.3s;
 }
 
 .input-box .input-type {
@@ -104,10 +108,8 @@
 
 .move-links {
   width: 100%;
-}
-
-.move-links .reg-link {
-  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-msg {

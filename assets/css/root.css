@@ -74,6 +74,7 @@ button {
   transition: 0.3s;
   opacity: 0.9;
   color: var(--color-text-secondary);
+  outline: none;
 }
 
 button:hover {
