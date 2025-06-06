@@ -1,6 +1,9 @@
 const passBtn = document.getElementById("passBtn");
 const passIn = document.getElementById("passIn");
 
+const passBtnC = document.getElementById("passBtnC");
+const passInC = document.getElementById("passInC");
+
 const toggleView = () => {
   if (passIn.getAttribute("type") === "password") {
     passIn.setAttribute("type", "text");
@@ -8,5 +11,15 @@ const toggleView = () => {
   } else {
     passIn.setAttribute("type", "password");
     passBtn.innerHTML = `<i class="bx bxs-eye-slash"></i>`;
+  }
+};
+
+const toggleViewC = () => {
+  if (passInC.getAttribute("type") === "password") {
+    passInC.setAttribute("type", "text");
+    passBtnC.innerHTML = `<i class="bx bxs-eye"></i>`;
+  } else {
+    passInC.setAttribute("type", "password");
+    passBtnC.innerHTML = `<i class="bx bxs-eye-slash"></i>`;
   }
 };

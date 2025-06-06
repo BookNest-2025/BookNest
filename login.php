@@ -77,7 +77,7 @@
           <div class="move-links">
             <p>
               <a href="login-supplier.php">
-                Are you a Supplier? <u>Supplier Login</u></a
+                Are you a Supplier? <u>Login</u></a
                 >
             </p>
             <p>
