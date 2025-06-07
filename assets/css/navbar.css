@@ -1,0 +1,141 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 30px;
+  background-color: var(--color-primary);
+  box-shadow: 0 5px 5px rgba(4, 3, 3, 0.329);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-left img{
+  width: 160px;
+}
+
+.icon {
+  font-size: 20px;
+  color: var(--color-background);
+}
+
+.icon:hover {
+  color: var(--color-accent);
+}
+
+.navbar-center {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: 100px;
+}
+
+.navbar-center li a {
+  text-decoration: none;
+  color: var(--color-background);
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.navbar-center li a:hover {
+   color: var(--color-text-primary); 
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+#search-input {
+  position: absolute;
+  right: 140px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  font-size: 14px;
+  border-radius: 15px;
+  background-color: #fff;
+  transition: width 0.4s ease, 
+              opacity 0.3s ease, 
+              padding 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+
+#search-input.active {
+  width: 220px;
+  opacity: 1;
+  padding: 8px 10px;
+  pointer-events: auto;
+}
+
+#search-input:focus{
+  outline: none;
+  border: none;
+}
+
+.search-box i{
+  color: var(--color-background);
+}
+
+.search-box i:hover{
+  color: var(--color-text-primary); 
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 0px;
+  color: var(--color-background);
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .navbar-center {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-right: 100px;
+  }
+
+  .navbar-center.show {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    font-size: 24px;
+    display: block;
+  }
+
+  .navbar-center {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    text-align: right;
+  }
+
+  .navbar-center.show {
+    display: flex;
+  }
+}
