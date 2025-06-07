@@ -32,7 +32,6 @@
                 <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
             </div>
         </div>
-
     </nav>
 
 
