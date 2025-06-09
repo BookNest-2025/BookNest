@@ -1,0 +1,131 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  background-color: var(--color-primary);
+  box-shadow: 0 5px 5px rgba(4, 3, 3, 0.329);
+  width: 100%;
+  z-index: 100;
+  padding: 0 20px;
+}
+
+.navbar-left img {
+  width: 180px;
+}
+
+.navbar-center {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-center a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: 0.2s;
+}
+
+.navbar-center a:hover {
+  transform: scale(1.5);
+  color: var(--color-text-primary);
+}
+
+.icon-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icon-row i, .icon-row a i {
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.icon-row i:hover, .icon-row a i:hover {
+  color: var(--color-text-primary);
+  transform: scale(1.25);
+}
+
+.search-panel {
+  width: 100%;
+  background: var(--color-background);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: 0.3s;
+  position: absolute;
+  top: 85px;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-panel.active {
+  max-height: 100px;
+  opacity: 1;
+  padding: 10px 20px;
+}
+
+.search-panel input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar-center {
+    flex-direction: column;
+    background-color: rgba(44, 100, 122, 0.85);
+    position: absolute;
+    top: 85px;
+    right: -100vw;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: right;
+    transition: 0.3s;
+  }
+
+  .navbar-center.show {
+    right: 0;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 68px;
+  }
+
+  .navbar-center {
+    top: 68px;
+    text-align: right;
+  }
+
+  .search-panel {
+    top: 68px;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+}
