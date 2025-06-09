@@ -24,18 +24,20 @@
         </ul>
 
         <div class="navbar-right">
-            <div class="search-box">
+            <div class="icon-row">
                 <i class="fa fa-search" id="search-icon"></i>
-                <input type="text" id="search-input" placeholder="Search books..." />
-                <a href=""><i class="fa fa-user"></i></a>
-                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                <a href="#"><i class="fa fa-user"></i></a>
+                <a href="#"><i class="fa fa-shopping-cart"></i></a>
                 <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
             </div>
         </div>
     </nav>
 
+    <div class="search-panel" id="search-panel">
+        <input type="text" id="search-input-field" placeholder="Search books..." />
+    </div>
 
-    <script src="..//assets//js//navbar.js"></script>
+    <script src="..//assets/js//navbar.js"></script>
 </body>
 
 </html>
