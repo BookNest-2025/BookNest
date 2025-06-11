@@ -1,3 +1,7 @@
+<?php 
+  include("includes/navbar.php");
+?>
+
 <?php
   include("./includes/db.php");
   session_start();
@@ -108,3 +112,7 @@
     <script src="./assets/js/login&register.js"></script>
   </body>
 </html>
+
+<?php
+  include("includes/footer.php");
+?>
