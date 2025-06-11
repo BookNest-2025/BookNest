@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 05, 2025 at 09:38 PM
+-- Generation Time: Jun 11, 2025 at 06:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -25,15 +25,15 @@ DROP DATABASE IF EXISTS `booknest`;
 CREATE DATABASE `booknest`;
 USE `booknest`;
 
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
   `admin_id` varchar(20) NOT NULL,
-  `name` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,26 +85,29 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
   `customer_id` varchar(20) NOT NULL,
   `name` varchar(50) DEFAULT 'user',
-  `email` varchar(50) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
   `adress` varchar(100) DEFAULT NULL,
   `password` varchar(250) NOT NULL,
   `telephone_number` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `customer`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`customer_id`, `name`, `email`, `adress`, `password`, `telephone_number`) VALUES
+('akila', 'user', NULL, NULL, '$2y$10$KnadiJhDUYfdIGLL6UO/n.zMZ3DeVMcz0CtJ9JjR7nvGQlR03CS4y', NULL),
 ('alice', 'Alice Smith', 'alice@example.com', '123 Main St, Colombo', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 771234567),
+('Avishka', 'user', NULL, NULL, '$2y$10$TY5p.tk008kWqC57szR2.uAKNxd60gGgXpddke1UBK3dGgQm3ZKfC', NULL),
 ('bob', 'Bob Silva', 'bob@example.com', '456 Lake Rd, Kandy', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 772345678),
-('charlie', 'Charlie Perera', 'charlie@example.com', '789 River St, Galle', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 773456789);
+('charlie', 'Charlie Perera', 'charlie@example.com', '789 River St, Galle', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 773456789),
+('sanira', 'user', '', NULL, '$2y$10$6OsM703fQCjBMZayMRz6w.G.6KGA10pZcRwO4k.ak1hjmtrmCpXb2', NULL);
 
 -- --------------------------------------------------------
 
@@ -130,8 +133,8 @@ CREATE TABLE `suppliers` (
   `supplier_id` varchar(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `telephone_no` varchar(20) NOT NULL
+  `email` varchar(50) DEFAULT NULL,
+  `telephone_no` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -139,7 +142,7 @@ CREATE TABLE `suppliers` (
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`admin_id`);
@@ -167,7 +170,7 @@ ALTER TABLE `cart`
   ADD KEY `book_id` (`book_id`);
 
 --
--- Indexes for table `customer`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
