@@ -89,9 +89,12 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: none !important; /* Replace with your desired background color */
-  -webkit-text-fill-color: #333 !important; /* Replace with your desired text color */
-  transition: background-color 5000s ease-in-out 0s; /* Prevent instant color change */
+  -webkit-box-shadow: none !important;
+  /* Replace with your desired background color */
+  -webkit-text-fill-color: #333 !important;
+  /* Replace with your desired text color */
+  transition: background-color 5000s ease-in-out 0s;
+  /* Prevent instant color change */
 }
 
 .page {
