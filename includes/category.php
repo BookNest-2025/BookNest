@@ -1,6 +1,3 @@
-<?php
-include("navbar.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +6,7 @@ include("navbar.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookNest</title>
     <link rel="stylesheet" href="../assets/css/root.css" />
-    <link rel="stylesheet" href="..//assets//css//category.css" />
+    <link rel="stylesheet" href="../assets/css/category.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
@@ -47,16 +44,9 @@ include("navbar.php");
                 <p>2 Books</p>
             </div>
         </div>
-        <input type="button">View All Catogories</input>
-
-    </div>
-
-
-
+        <div class="btn-5">
+            <a>More Categries</a>
+        </div>
 </body>
 
 </html>
-
-<?php
-include("footer.php");
-?>
