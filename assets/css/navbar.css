@@ -29,6 +29,7 @@
 }
 
 .navbar-center a {
+  display: inline-block;
   font-size: 16px;
   text-decoration: none;
   color: var(--color-text-secondary);
@@ -36,7 +37,7 @@
 }
 
 .navbar-center a:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
   color: var(--color-text-primary);
 }
 

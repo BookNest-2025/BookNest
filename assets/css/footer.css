@@ -2,6 +2,7 @@
     background-color: var(--color-text-primary);
     color: var(--color-text-secondary);
     padding: 40px 20px;
+    border-bottom: white;
 }
 
 .footer-content {
@@ -37,6 +38,7 @@
 }
 
 .quick-media li a {
+    display: inline-block;
     color: var(--color-surface);
     font-size: 15px;
     text-decoration: none;
@@ -44,8 +46,8 @@
 }
 
 .quick-media li a:hover {
+    transform: scale(1.1);
     color: var(--color-accent);
-    scale: 1.5;
 }
 
 .quick-social-media ul {
@@ -60,7 +62,6 @@
     color: var(--color-surface);
     font-size: 18px;
     text-decoration: none;
-    /* transition: color 0.3s ease; */
 }
 
 .fa-facebook:hover {
