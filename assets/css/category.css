@@ -1,16 +1,18 @@
 .category-main {
     margin-top: 85px;
-    min-height: 50vh;
+    min-height: 55vh;
 }
 
 .category-main h1 {
-    padding: 50px 0 5px 0;
+    padding: 50px 0 20px 0;
     font-size: 29px;
+    text-align: center;
 }
 
 .category {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
     justify-content: space-around;
     gap: 30px;
     margin-top: 15px;
@@ -29,10 +31,6 @@
     font-size: 15px;
 }
 
-.category-list img {
-    width: 2px;
-}
-
 .category-list:hover {
     scale: 1.05;
     cursor: pointer;
@@ -41,7 +39,6 @@
 .fa-book {
     color: var(--color-accent);
     font-size: 20px;
-
     padding: 20px 0;
 }
 
