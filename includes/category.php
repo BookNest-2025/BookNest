@@ -1,3 +1,6 @@
+<?php
+include("navbar.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,9 +47,11 @@
                 <p>2 Books</p>
             </div>
         </div>
-        <div class="btn-5">
-            <a>More Categries</a>
-        </div>
+    </div>
 </body>
 
 </html>
+
+<?php
+include("footer.php");
+?>

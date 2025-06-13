@@ -65,21 +65,23 @@ a {
 }
 
 button {
-  border-radius: 8px;
-  border: none;
-  font-size: 1em;
-  padding: 12px 15px;
-  font-weight: 500;
-  font-family: inherit;
+  height: 60px;
+  border: 3px solid #315cfd;
+  border-radius: 10px;
+  transition: all 0.3s;
   cursor: pointer;
-  transition: 0.3s;
-  opacity: 0.9;
-  outline: none;
+  background: white;
+  font-size: 1em;
+  font-weight: 550;
+  padding: 10px;
 }
 
 button:hover {
-  opacity: 1;
+  background: var(--color-secondary);
+  color: white;
+  font-size: 1.2em;
 }
+
 
 ul {
   list-style: none;
