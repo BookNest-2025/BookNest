@@ -23,3 +23,14 @@ const toggleViewC = () => {
     passBtnC.innerHTML = `<i class="bx bxs-eye-slash"></i>`;
   }
 };
+
+const advanceUser = document.getElementById("advance-user");
+const advanceUsers = document.querySelector(".advance-users");
+
+advanceUser.addEventListener("click", () => {
+  if (advanceUser.checked) {
+    advanceUsers.style.maxHeight = advanceUsers.scrollHeight + 10 + "px";
+  } else {
+    advanceUsers.style.maxHeight = "0px";
+  }
+});

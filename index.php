@@ -14,9 +14,8 @@
 </html>
 <?php
     session_start();
-    $password = "sanira123";
-
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    echo"$hash";
+    if(isset($_SESSION['email']) && isset($_SESSION['user_type'])) {
+        echo"hello {$_SESSION['user_type']}, {$_SESSION['user_id']}";
+    }
     session_destroy();
 ?>
