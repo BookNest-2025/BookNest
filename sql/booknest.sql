@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2-1.fc42
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jun 11, 2025 at 06:07 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: Jun 13, 2025 at 06:08 PM
+-- Server version: 10.11.11-MariaDB
+-- PHP Version: 8.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,11 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `booknest`
 --
-DROP DATABASE IF EXISTS `booknest`;
-
-CREATE DATABASE `booknest`;
-USE `booknest`;
-
 
 -- --------------------------------------------------------
 
@@ -33,10 +28,11 @@ USE `booknest`;
 --
 
 CREATE TABLE `admins` (
-  `admin_id` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `email` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `a_id` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `telno` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -45,30 +41,51 @@ CREATE TABLE `admins` (
 --
 
 CREATE TABLE `books` (
-  `book_id` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
+  `b_id` int(11) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `rating` decimal(10,2) DEFAULT NULL,
-  `no_of_books` int(11) DEFAULT NULL,
-  `category` varchar(100) DEFAULT NULL,
-  `author_name` varchar(30) DEFAULT NULL,
-  `supplier_id` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `quantity` int(11) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `state` tinyint(1) NOT NULL,
+  `s_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_reviews`
+-- Table structure for table `book_authors`
 --
 
-CREATE TABLE `book_reviews` (
-  `review_id` int(11) NOT NULL,
-  `custemer_id` varchar(20) NOT NULL,
-  `book_id` int(11) NOT NULL,
-  `rating` decimal(10,2) NOT NULL,
-  `review` varchar(1000) DEFAULT NULL,
-  `review_date` date DEFAULT curdate()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `book_authors` (
+  `b_id` int(11) NOT NULL,
+  `author_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_images`
+--
+
+CREATE TABLE `book_images` (
+  `b_id` int(11) NOT NULL,
+  `image_url` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_orders`
+--
+
+CREATE TABLE `book_orders` (
+  `o_id` int(11) NOT NULL,
+  `b_id` int(11) NOT NULL,
+  `sell_price` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -77,10 +94,10 @@ CREATE TABLE `book_reviews` (
 --
 
 CREATE TABLE `cart` (
-  `custemer_id` varchar(20) NOT NULL,
-  `book_id` int(11) NOT NULL,
+  `c_id` int(11) NOT NULL,
+  `b_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -89,53 +106,79 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `customers` (
-  `customer_id` varchar(20) NOT NULL,
-  `name` varchar(50) DEFAULT 'user',
-  `email` varchar(50) DEFAULT NULL,
-  `adress` varchar(100) DEFAULT NULL,
-  `password` varchar(250) NOT NULL,
-  `telephone_number` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `c_id` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `adress` varchar(150) DEFAULT NULL,
+  `telno` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `name`, `email`, `adress`, `password`, `telephone_number`) VALUES
-('akila', 'user', NULL, NULL, '$2y$10$KnadiJhDUYfdIGLL6UO/n.zMZ3DeVMcz0CtJ9JjR7nvGQlR03CS4y', NULL),
-('alice', 'Alice Smith', 'alice@example.com', '123 Main St, Colombo', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 771234567),
-('Avishka', 'user', NULL, NULL, '$2y$10$TY5p.tk008kWqC57szR2.uAKNxd60gGgXpddke1UBK3dGgQm3ZKfC', NULL),
-('bob', 'Bob Silva', 'bob@example.com', '456 Lake Rd, Kandy', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 772345678),
-('charlie', 'Charlie Perera', 'charlie@example.com', '789 River St, Galle', '$2y$10$pT56G3uDyM.YNMDfaMeGwu9dMKcskiKWjWTvavboYY3RGANfmUrxC', 773456789),
-('sanira', 'user', '', NULL, '$2y$10$6OsM703fQCjBMZayMRz6w.G.6KGA10pZcRwO4k.ak1hjmtrmCpXb2', NULL);
+INSERT INTO `customers` (`c_id`, `email`, `name`, `adress`, `telno`) VALUES
+(1, 'sanira.adesha@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `site_reviews`
+-- Table structure for table `delevery_partners`
 --
 
-CREATE TABLE `site_reviews` (
-  `review_id` int(11) NOT NULL,
-  `custemer_id` varchar(20) NOT NULL,
-  `rating` decimal(10,2) NOT NULL,
-  `review` varchar(1000) DEFAULT NULL,
-  `review_date` date DEFAULT curdate()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `delevery_partners` (
+  `d_id` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `adress` varchar(150) DEFAULT NULL,
+  `telno` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suppliers`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `suppliers` (
-  `supplier_id` varchar(20) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `password` varchar(20) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `telephone_no` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `orders` (
+  `o_id` int(11) NOT NULL,
+  `c_id` int(11) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  `o_date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shops`
+--
+
+CREATE TABLE `shops` (
+  `s_id` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `adress` varchar(150) DEFAULT NULL,
+  `telno` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(30) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `category` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`email`, `password`, `category`) VALUES
+('sanira.adesha@gmail.com', '$2y$12$UIG572jSY4R2sHmRHjVMxeSD.b.jorVeUfZozDqDQsBRado0W0fSO', 'customers');
 
 --
 -- Indexes for dumped tables
@@ -145,94 +188,173 @@ CREATE TABLE `suppliers` (
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`admin_id`);
+  ADD PRIMARY KEY (`a_id`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`book_id`),
-  ADD KEY `supplier_id` (`supplier_id`);
+  ADD PRIMARY KEY (`b_id`),
+  ADD KEY `s_id` (`s_id`);
 
 --
--- Indexes for table `book_reviews`
+-- Indexes for table `book_authors`
 --
-ALTER TABLE `book_reviews`
-  ADD PRIMARY KEY (`review_id`),
-  ADD KEY `custemer_id` (`custemer_id`),
-  ADD KEY `book_id` (`book_id`);
+ALTER TABLE `book_authors`
+  ADD KEY `b_id` (`b_id`);
+
+--
+-- Indexes for table `book_images`
+--
+ALTER TABLE `book_images`
+  ADD KEY `b_id` (`b_id`);
+
+--
+-- Indexes for table `book_orders`
+--
+ALTER TABLE `book_orders`
+  ADD PRIMARY KEY (`o_id`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD KEY `custemer_id` (`custemer_id`),
-  ADD KEY `book_id` (`book_id`);
+  ADD KEY `b_id` (`b_id`),
+  ADD KEY `c_id` (`c_id`);
 
 --
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`);
+  ADD PRIMARY KEY (`c_id`),
+  ADD KEY `email` (`email`);
 
 --
--- Indexes for table `site_reviews`
+-- Indexes for table `delevery_partners`
 --
-ALTER TABLE `site_reviews`
-  ADD PRIMARY KEY (`review_id`),
-  ADD KEY `custemer_id` (`custemer_id`);
+ALTER TABLE `delevery_partners`
+  ADD PRIMARY KEY (`d_id`),
+  ADD KEY `email` (`email`);
 
 --
--- Indexes for table `suppliers`
+-- Indexes for table `orders`
 --
-ALTER TABLE `suppliers`
-  ADD PRIMARY KEY (`supplier_id`);
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`o_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Indexes for table `shops`
+--
+ALTER TABLE `shops`
+  ADD PRIMARY KEY (`s_id`),
+  ADD KEY `email` (`email`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `book_reviews`
+-- AUTO_INCREMENT for table `admins`
 --
-ALTER TABLE `book_reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `admins`
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `site_reviews`
+-- AUTO_INCREMENT for table `books`
 --
-ALTER TABLE `site_reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `books`
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `delevery_partners`
+--
+ALTER TABLE `delevery_partners`
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `shops`
+--
+ALTER TABLE `shops`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `admins`
+--
+ALTER TABLE `admins`
+  ADD CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
+
+--
 -- Constraints for table `books`
 --
 ALTER TABLE `books`
-  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`);
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `shops` (`s_id`);
 
 --
--- Constraints for table `book_reviews`
+-- Constraints for table `book_authors`
 --
-ALTER TABLE `book_reviews`
-  ADD CONSTRAINT `book_reviews_ibfk_1` FOREIGN KEY (`custemer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `book_reviews_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+ALTER TABLE `book_authors`
+  ADD CONSTRAINT `book_authors_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `books` (`b_id`);
+
+--
+-- Constraints for table `book_images`
+--
+ALTER TABLE `book_images`
+  ADD CONSTRAINT `book_images_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `books` (`b_id`);
+
+--
+-- Constraints for table `book_orders`
+--
+ALTER TABLE `book_orders`
+  ADD CONSTRAINT `book_orders_ibfk_1` FOREIGN KEY (`o_id`) REFERENCES `orders` (`o_id`);
 
 --
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`custemer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `books` (`b_id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`c_id`) REFERENCES `customers` (`c_id`);
 
 --
--- Constraints for table `site_reviews`
+-- Constraints for table `customers`
 --
-ALTER TABLE `site_reviews`
-  ADD CONSTRAINT `site_reviews_ibfk_1` FOREIGN KEY (`custemer_id`) REFERENCES `customers` (`customer_id`);
+ALTER TABLE `customers`
+  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
+
+--
+-- Constraints for table `delevery_partners`
+--
+ALTER TABLE `delevery_partners`
+  ADD CONSTRAINT `delevery_partners_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `customers` (`c_id`);
+
+--
+-- Constraints for table `shops`
+--
+ALTER TABLE `shops`
+  ADD CONSTRAINT `shops_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
