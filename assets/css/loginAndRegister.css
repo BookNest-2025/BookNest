@@ -11,6 +11,7 @@
     var(--color-border) 50%,
     var(--color-secondary) 100%
   );
+  min-height: calc(100vh - 68px);
 }
 
 .login,
@@ -71,6 +72,8 @@
   background: transparent;
   padding: 0 5px;
   transition: 0.3s;
+  border: none;
+  outline: none;
 }
 
 .input-box .input-type {
@@ -101,7 +104,6 @@
 
 .input-box label {
   padding: 0 20px;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,6 +130,10 @@
   width: 100%;
   margin-top: 25px;
   margin-bottom: 25px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  opacity: 0.8;
+  transition: 0.2s;
 }
 
 .register .btn {
@@ -156,9 +162,15 @@
   overflow: hidden;
   transition: 0.3s;
   margin-top: 5px;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
+  .page-login,
+  .page-register {
+    min-height: calc(100vh - 85px);
+  }
+
   .login,
   .register {
     width: 350px;
