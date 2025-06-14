@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookNest</title>
-    <link rel="stylesheet" href="..//assets//css//root.css" />
-    <link rel="stylesheet" href="..//assets//css//navbar.css" />
+    <link rel="stylesheet" href=".//assets//css//root.css" />
+    <link rel="stylesheet" href=".//assets//css//navbar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="..//assets//images//logo.png" alt="Logo" />
+            <img src=".//assets//images//logo.png" alt="Logo" />
         </div>
 
         <ul class="navbar-center">
@@ -38,7 +38,10 @@
     <div id="toggle-handler-search"></div>
     <div id="toggle-handler-menu"></div>
 
-    <script src="..//assets/js//navbar.js"></script>
+    <div class="navbar-background">
+    </div>
+
+    <script src=".//assets/js//navbar.js"></script>
 </body>
 
 </html>

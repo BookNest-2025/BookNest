@@ -6,17 +6,35 @@
   justify-content: space-between;
   align-items: center;
   height: 85px;
-  background-color: var(--color-primary);
   box-shadow: 0 5px 5px rgba(4, 3, 3, 0.329);
   width: 100%;
   padding: 0 20px;
   z-index: 1000;
+  backdrop-filter: blur(3px);
+  text-shadow: 0 0 3px var(--color-text-primary);
+}
+
+.navbar-background {
+  position: fixed;
+  background-color: var(--color-primary);
+  width: 100vw;
+  height: 85px;
+  top: 0;
+  left: 0;
+  z-index: 900;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .navbar-left img {
+  position: absolute;
+  left: -10px;
   width: 180px;
-  display: flex;
-  align-items: center;
+  z-index: 1000;
 }
 
 .navbar-center {
@@ -26,6 +44,9 @@
   gap: 30px;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  background: transparent;
+  position: relative;
 }
 
 .navbar-center a {
@@ -38,7 +59,7 @@
 
 .navbar-center a:hover {
   transform: scale(1.1);
-  color: var(--color-text-primary);
+  color: var(--color-accent);
 }
 
 .icon-row {
@@ -47,6 +68,9 @@
   justify-content: center;
   gap: 20px;
   align-items: center;
+  z-index: 1000;
+  background: transparent;
+  text-shadow: none;
 }
 
 .icon-row a {
@@ -127,6 +151,7 @@
   display: none;
   top: 0;
   left: 0;
+  backdrop-filter: blur(3px);
 }
 
 #toggle-handler-menu.active {
@@ -136,7 +161,6 @@
 @media (max-width: 900px) {
   .navbar-center {
     flex-direction: column;
-    background-color: rgba(44, 100, 122, 0.85);
     position: absolute;
     top: 85px;
     right: -100vw;
@@ -144,6 +168,10 @@
     padding: 15px 20px;
     text-align: right;
     transition: 0.3s;
+  }
+
+  .navbar-center a {
+    color: #eee;
   }
 
   .navbar-center.show {
@@ -157,6 +185,10 @@
 
 @media (max-width: 768px) {
   .navbar {
+    height: 68px;
+  }
+
+  .navbar-background {
     height: 68px;
   }
 
