@@ -1,9 +1,3 @@
-<?php
-
-include("navbar.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,9 +80,3 @@ include("navbar.php");
 </body>
 
 </html>
-
-<?php
-
-include("footer.php");
-
-?>
