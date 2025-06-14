@@ -13,12 +13,6 @@
 
 <body>
 
-    <?php
-
-    include("category.php");
-
-    ?>
-
     <div class="new_arrivals_main">
         <div class="new_arrivals_top">
             <h1>New Arrivals</h1>
