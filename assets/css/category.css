@@ -1,6 +1,6 @@
 .category-main {
     margin-top: 85px;
-    min-height: 55vh;
+    min-height: 35vh;
 }
 
 .category-main h1 {
@@ -25,6 +25,7 @@
     padding: 30px 30px 40px 30px;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
 }
 
 .category-list h3 {

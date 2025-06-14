@@ -9,12 +9,12 @@ include("navbar.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookNest</title>
     <link rel="stylesheet" href="../assets/css/root.css" />
-    <link rel="stylesheet" href="..//assets//css//category.css" />
+    <link rel="stylesheet" href="../assets/css/category.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-    <div class="category-main page">
+    <div class="category-main">
         <h1>Browse by Category</h1>
         <div class="category">
             <div class="category-list">
@@ -51,7 +51,3 @@ include("navbar.php");
 </body>
 
 </html>
-
-<?php
-include("footer.php");
-?>

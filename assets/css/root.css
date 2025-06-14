@@ -64,6 +64,7 @@ a {
   font-size: 14px;
 }
 
+/* 
 button {
   height: 60px;
   border: 3px solid #315cfd;
@@ -80,7 +81,7 @@ button:hover {
   background: var(--color-secondary);
   color: white;
   font-size: 1.2em;
-}
+} */
 
 
 ul {
