@@ -20,21 +20,12 @@
 }
 
 .category-list {
-<<<<<<< HEAD
-    flex: 1;
-    background-color: var(--color-text-secondary);
-    padding: 30px 30px 40px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: 0.2s ease-in-out;
-=======
   flex: 1;
   background-color: var(--color-text-secondary);
   padding: 30px 30px 40px 30px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease-in-out;
->>>>>>> c85dc0b (created hero image slider. and fixed button color error.)
+  transition: 0.2s ease-in-out;
 }
 
 .category-list h3 {

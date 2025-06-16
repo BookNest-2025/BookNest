@@ -1,0 +1,35 @@
+.notice {
+    background-repeat: none;
+    background-color: var(--color-primary);
+    background-size: cover;
+    min-height: 40vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 70px;
+    color: var(--color-text-secondary);
+}
+
+.notice h1 {
+    margin-bottom: 20px;
+}
+
+.notice p {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.notice button {
+    background-color: #007bff;
+    color: var(--color-text-secondary);
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nnotice button:hover {
+    background-color: #0056b3;
+}
