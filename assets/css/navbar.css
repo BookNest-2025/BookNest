@@ -30,6 +30,12 @@
   position: relative;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .navbar-left img {
   position: absolute;
   left: -10px;
@@ -71,6 +77,8 @@
   z-index: 1000;
   background: transparent;
   text-shadow: none;
+  position: absolute;
+  right: 0;
 }
 
 .icon-row a {
