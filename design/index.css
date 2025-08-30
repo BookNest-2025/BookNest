@@ -1,0 +1,293 @@
+/* carousel */
+.carousel {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 70%;
+  display: flex;
+  position: relative;
+  box-shadow: 0 0 15px rgba(41, 40, 40, 0.3);
+}
+
+.carousel .slider {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.carousel .slider .item {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  inset: 0 0 0 0;
+}
+
+.slider .item:nth-child(1) {
+  z-index: 2;
+}
+
+.slider .item:nth-child(2) {
+  z-index: 1;
+  position: relative;
+  top: -100%;
+}
+
+.slider .item:nth-child(3) {
+  z-index: 0;
+  top: -200%;
+}
+
+/* carousel content */
+.carousel .slider .item .content {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 50%;
+  z-index: 0;
+}
+
+.slider .item:nth-child(1) .content {
+  z-index: 2;
+}
+
+.slider .item:nth-child(2) .content {
+  z-index: 1;
+}
+
+.slider .item:nth-child(3) .content {
+  z-index: 0;
+}
+
+.slider .item .content h1 {
+  font-size: 50px;
+  letter-spacing: 5px;
+}
+
+.slider .item .content p {
+  margin-top: 20px;
+}
+
+.slider .item .content .topic-highligted {
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.slider .item:nth-child(1) .content h1,
+.slider .item:nth-child(1) .content p,
+.slider .item:nth-child(1) .content button {
+  transform: translateY(50px);
+  filter: blur(10px);
+  opacity: 0;
+  animation: showContent 0.5s linear 1 forwards;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.carousel.next .slider .item:nth-child(3) .content {
+  animation: hideContent 1.5s linear 1 forwards;
+}
+
+@keyframes hideContent {
+  to {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(-150px);
+  }
+}
+
+.carousel.prev .slider .item:nth-child(2) .content {
+  z-index: 500000;
+}
+
+.slider .item:nth-child(1) .content h1 {
+  animation-delay: 1.2s;
+}
+
+.slider .item:nth-child(1) .content p {
+  animation-delay: 1.4s;
+}
+
+.slider .item:nth-child(1) .content button {
+  animation-delay: 1.6s;
+}
+
+/* carousel image */
+.carousel .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+}
+
+.carousel.next .slider .item:nth-child(3) {
+  z-index: 3;
+}
+
+.carousel.prev .slider .item:nth-child(2) {
+  z-index: 1;
+}
+
+.carousel.next .slider .item:nth-child(3) img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: showNextImage 0.5s linear 1 forwards;
+}
+
+.carousel.prev .slider .item:nth-child(1) img {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  animation: showPrevImage 0.5s linear 1 forwards;
+}
+
+@keyframes showNextImage {
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes showPrevImage {
+  to {
+    left: 0;
+  }
+}
+
+.carousel .indicators {
+  display: flex;
+  gap: 15px;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  z-index: 3;
+}
+
+.carousel .indicators .item {
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 2px rgba(41, 40, 40, 0.5);
+  border-radius: 100%;
+  background: var(--color-secondary);
+}
+
+.carousel .indicators .item.item1 {
+  background: var(--color-primary);
+}
+
+.carousel .navigations {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.carousel button {
+  background: var(--color-surface);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: var(--color-text-secondary);
+}
+
+/* Best-seller */
+.best-seller {
+  min-width: 25%;
+  padding: 30px 20px;
+  border-radius: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  --bg-image: url("./book.png");
+  transition: 0.3s;
+  color: var(--color-text-secondary);
+  gap: 5px;
+  box-shadow: 0 0 15px rgba(41, 40, 40, 0.3);
+}
+
+.best-seller::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-image);
+  background-size: cover;
+  filter: blur(15px) brightness(80%);
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.best-seller:hover::before {
+  transform: scale(1.2);
+}
+
+.best-seller .best-book {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.best-seller .best-book img {
+  height: 85%;
+  border-radius: 20px;
+}
+
+.best-seller .best-book .left,
+.best-seller .best-book .right {
+  background: var(--color-surface);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: var(--color-text-secondary);
+}
+
+.best-seller button {
+  padding: 15px 20px;
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+}
+
+/* main-page */
+
+.main-page {
+  display: flex;
+  align-items: center;
+}
+
+/* main-conetnt */
+.main-content {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 0;
+}
