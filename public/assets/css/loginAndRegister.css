@@ -8,7 +8,7 @@
   background: linear-gradient(
     90deg,
     var(--color-primary) 0%,
-    var(--color-border) 50%,
+    var(--color-border) 70%,
     var(--color-secondary) 100%
   );
   min-height: calc(100vh - 68px);

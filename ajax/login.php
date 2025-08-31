@@ -1,5 +1,5 @@
 <?php
-  include("./includes/db.php");
+  include "../app/config/db.php";
   session_start();
   $error = "";
 
@@ -48,8 +48,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookNest</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./assets/css/root.css" />
-    <link rel="stylesheet" href="./assets/css/loginAndRegister.css" />
+    <link rel="stylesheet" href="../public/assets/css/root.css" />
+    <link rel="stylesheet" href="../public/assets/css/loginAndRegister.css" />
   </head>
   <body>
     <div class="page page-login">
@@ -91,6 +91,6 @@
       </div>
     </div>
 
-    <script src="./assets/js/login&register.js"></script>
+    <script src="../public/assets/js/login&register.js"></script>
   </body>
 </html>

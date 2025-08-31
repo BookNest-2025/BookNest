@@ -6,14 +6,15 @@ form.addEventListener("submit", function (e) {
 
   const formData = new FormData(form);
   console.log(formData);
-  fetch("./register.php", {
+  fetch("../ajax/register.php", {
     method: "POST",
     body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       if (data.success) {
-        window.location.href = "login.php";
+        window.location.href = "login.html";
       } else {
         errorMsg.textContent = data.error;
       }

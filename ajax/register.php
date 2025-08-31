@@ -1,5 +1,5 @@
 <?php
-include("./includes/db.php");
+include "../app/config/db.php";
 session_start();
 header("Content-Type: application/json"); // send JSON response
 

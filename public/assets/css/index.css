@@ -216,7 +216,7 @@
   position: relative;
   overflow: hidden;
   z-index: 0;
-  --bg-image: url("./book.png");
+  --bg-image: url("../images/book.jpg");
   transition: 0.3s;
   color: var(--color-text-secondary);
   gap: 5px;
