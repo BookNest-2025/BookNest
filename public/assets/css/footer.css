@@ -66,12 +66,12 @@
 
 .fa-facebook:hover {
     color: #1877F2;
-    scale: 1.5;
+    scale: 1.2;
 }
 
 .fa-twitter:hover {
     color: #1DA1F2;
-    scale: 1.5;
+    scale: 1.2;
 }
 
 .fa-instagram:hover {
@@ -80,7 +80,7 @@
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    scale: 1.5;
+    scale: 1.2;
 }
 
 .footer-bottom {
