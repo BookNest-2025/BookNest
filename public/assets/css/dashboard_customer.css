@@ -110,6 +110,11 @@
     margin: 20px 0;
 }
 
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
 .cart_item {
     display: flex;
     align-items: center;

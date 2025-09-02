@@ -3,81 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seller_Dashboard</title>
-    <link rel="stylesheet" href="assets/css/dashboard_seller.css" />
-    <link rel="stylesheet" href=".//assets/css/root.css" />
+    <title>Customer_Admin</title>
+    <link rel="stylesheet" href="./assets/css/dashboard_admin.css" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
   <body>
-    <div class="dashboard_seller_body">
+    <div class="dashboard_admin_body">
       <div class="sidebar">
-        <img src="./assets/images/logo.png" alt="logo" />
-        <a href="#";"><i class="fa fa-sign-out"></i> Logout</a>
+        <img src="./assets/images/logo.png" alt="" />
+        <a href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="#"><i class="fa fa-book"></i> Manage Books</a>
+        <a href="#"><i class="fa fa-shopping-cart"></i> Incoming Orders</a>
+        <a href="#"><i class="fa fa-truck"></i> Delivery Partners</a>
+        <a href="#"><i class="fa fa-list-alt"></i> Assigned Deliveries</a>
+        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
       </div>
-      <div class="content">
-        <div class="main">
-          <div class="header">
-            <h1>Welcome, Seller 👋</h1>
-          </div>
 
+      <!-- Main Content -->
+      <div class="main">
+        <div class="header">
+          <h1>Welcome,<span></span>👋</h1>
+          <div class="profile">
+            <i class="fa fa-user-circle"></i><span></span>
+          </div>
+        </div>
+        <div class="Details">
           <h2>Quick Actions</h2>
+          <br />
           <div class="grid">
             <div class="card">
-              <div class="card-header">
-                <h3>Manage Books</h3>
-                <div class="search-bar">
-                  <input type="text" placeholder="Search books..." />
-                </div>
-              </div>
-
-              <div class="cart_item">
-                <img src="https://picsum.photos/100/150?random=1" alt="Book" />
-                <div class="item_details">
-                  <h4>The Silent Dawn</h4>
-                  <p>by J.K. Writer</p>
-                  <p>$15.99</p>
-                </div>
-                <div class="control_buttons">
-                  <button>-</button>
-                  <span></span>
-                  <button>+</button>
-                </div>
-                <a href="#" class="delete-btn">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-              </div>
+              <i class="fa fa-book fa-2x"></i>
+              <h3>Manage Books</h3>
+              <p>Manage book listings easily.</p>
+              <button>Manage Books</button>
             </div>
 
             <div class="card">
+              <i class="fa fa-shopping-cart fa-2x"></i>
               <h3>View Incoming Orders</h3>
-              <p>See all new orders placed by customers.</p>
+              <p>See all customer orders here.</p>
               <button>View Orders</button>
             </div>
 
             <div class="card">
+              <i class="fa fa-truck fa-2x"></i>
               <h3>Delivery Partners</h3>
-              <p>Manage and assign delivery partners.</p>
+              <p>Manage and assign delivery staff.</p>
               <button>Manage Partners</button>
             </div>
 
             <div class="card">
+              <i class="fa fa-list-alt fa-2x"></i>
               <h3>Assigned Deliveries</h3>
-              <p>Check the deliveries already assigned.</p>
+              <p>Track deliveries assigned to partners.</p>
               <button>View Deliveries</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
