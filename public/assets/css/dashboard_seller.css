@@ -50,6 +50,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .header h1 {
@@ -83,11 +85,25 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .card-header h3 {
     font-size: 20px;
     color: #333;
+}
+
+.card button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    margin: 10px 0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 200px;
 }
 
 .search-bar {
@@ -128,6 +144,7 @@
     padding: 12px;
     gap: 15px;
     transition: 0.3s;
+    flex-wrap: wrap;
 }
 
 .cart_item:hover {
@@ -155,6 +172,7 @@
     background: #f1f1f1;
     border: none;
     padding: 6px 12px;
+    width: 40px;
     font-size: 1rem;
     border-radius: 6px;
     cursor: pointer;
@@ -175,8 +193,116 @@
     color: #d9534f;
     font-size: 1.2rem;
     transition: color 0.3s;
+    padding: 20px;
 }
 
 .delete-btn:hover {
     color: #c9302c;
+}
+
+@media (max-width: 900px) {
+    .dashboard_seller_body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .sidebar a {
+        margin: 0 10px;
+    }
+
+    .sidebar img {
+        width: 40%;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .card-header h3 {
+        font-size: 18px;
+    }
+
+    .card button {
+        width: 100%;
+    }
+
+    .search-bar {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .cart_item img {
+        width: 60px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 412px) {
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sidebar a {
+        margin: 6px 0;
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .card-header h3 {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .cart_item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart_item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .control_buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .delete-btn {
+        font-size: 1rem;
+        padding: 10px;
+    }
 }
