@@ -1,0 +1,93 @@
+  body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .book-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px auto;
+      max-width: 1000px;
+      margin-top: 10%;
+    }
+
+    .book-box {
+      display: flex;
+      gap: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-img img {
+      width: 280px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .book-title {
+      max-width: 600px;
+    }
+
+    .book-title strong {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .rating i {
+      color: #f8c200;
+      margin-right: 3px;
+    }
+
+    .author {
+      margin: 10px 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #6a0dad;
+      margin: 10px 0;
+    }
+
+    .footer-social {
+      margin: 15px 0;
+    }
+
+    .footer-social a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .footer-social a:hover {
+      color: #6a0dad;
+    }
+
+    .book-title p {
+      margin: 15px 0;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: var(--color-secondary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #4b007d;
+    }
+  
