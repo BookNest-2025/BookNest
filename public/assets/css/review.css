@@ -68,10 +68,7 @@
     color: #555;
   }
 
-  /* Review summary (bars) */
-  .review-summary {
-    margin-top: 12px;
-  }
+ 
 
   .review-bar {
     display: flex;
@@ -125,18 +122,11 @@
   }
 
   /* Summary Section */
-  .review-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #f9fcff;
-    padding: 20px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-  }
+ 
 
   .ratings-breakdown {
     flex: 2;
+      text-align: center;
   }
 
   .bar {
