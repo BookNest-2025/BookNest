@@ -22,7 +22,7 @@ const logout = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        addAlert("Logout Successfully!\nDirecting to the Homepage...", false);
+        addAlert(`Logout Successfully!<br>Directing to the Homepage...`, false);
         redirect("index.html");
       }
     })

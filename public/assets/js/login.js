@@ -1,11 +1,11 @@
-const form = document.getElementById("registerForm");
+const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const formData = new FormData(form);
   console.log(formData);
-  fetch("../ajax/register.php", {
+  fetch("../ajax/login.php", {
     method: "POST",
     body: formData,
   })
@@ -13,11 +13,8 @@ form.addEventListener("submit", function (e) {
     .then((data) => {
       console.log(data);
       if (data.success) {
-        addAlert(
-          "Registerd Successfully!.<br> Directing to Login page...",
-          false
-        );
-        redirect("login.html");
+        addAlert("Login Successfully!.<br> Directing to Homepage...", false);
+        redirect("index.html");
       } else if (data.error) {
         addAlert(data.error);
       } else if (data.redirect) {
