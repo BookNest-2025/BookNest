@@ -121,14 +121,7 @@
     margin-bottom: 20px;
   }
 
-  /* Summary Section */
  
-
-  .ratings-breakdown {
-    flex: 2;
-      text-align: center;
-  }
-
   .bar {
     display: flex;
     align-items: center;
@@ -142,6 +135,7 @@
 
   .progress {
     flex: 1;
+    flex-direction: column;
     height: 8px;
     background: #e0e0e0;
     margin: 0 8px;
@@ -168,6 +162,11 @@
   .avg-rating .stars {
     color: goldenrod;
     font-size: 1.2rem;
+  }
+  .review-summary{
+  display: flex;
+  justify-content: flex-end;
+flex-direction: row;  
   }
 
   .review-btn {
