@@ -2,7 +2,7 @@ const carousel = document.querySelector(".carousel");
 const slider = document.querySelector(".carousel .slider");
 const indicator = document.querySelector(".carousel .indicators");
 
-const timeRunning = 2000;
+const timeRunning = 600;
 const autoNext = 8000;
 let runTimeOut;
 let runAutoNext = setTimeout(() => {
@@ -16,11 +16,10 @@ const showSlider = (type) => {
 
   if (type === "next") {
     slider.appendChild(sliderItems[0]);
-    slider
+    slider;
     let positionLastItem = indicatorItems.length - 1;
     indicator.prepend(indicatorItems[positionLastItem]);
     carousel.classList.add("next");
-
   } else {
     let positionLastItem = sliderItems.length - 1;
     slider.prepend(sliderItems[positionLastItem]);
@@ -57,8 +56,3 @@ function handleSwipe() {
     showSlider("prev");
   }
 }
-
-// const bestSeller = document.querySelector(".best-seller");
-
-// // Change background image dynamically
-// bestSeller.style.setProperty("--bg-image", 'url("./1.jpg")');

@@ -1,11 +1,10 @@
 <?php
-$host = "localhost";
+$dsn = "mysql:host=localhost;dbname=booknest;charset=utf8mb4";
 $username = "root";
 $password = "";
-$db_name = "booknest";
+$options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
-$conn = new mysqli($host, $username, $password, $db_name);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-};
+$pdo = new PDO($dsn, $username, $password, $options);

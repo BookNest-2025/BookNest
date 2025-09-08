@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #2c647a;
+  background: var(--color-text-primary);
   background: linear-gradient(
     90deg,
     var(--color-primary) 0%,
@@ -77,10 +77,7 @@
 }
 
 .input-box .input-type {
-  background: var(--color-surface);
-  border-radius: 5px;
   color: var(--color-text-primary);
-  opacity: 0.8;
   font-weight: 500;
   left: 20px;
   pointer-events: none;
