@@ -27,7 +27,7 @@ const toggleViewC = () => {
 const advanceUser = document.getElementById("advance-user");
 const advanceUsers = document.querySelector(".advance-users");
 
-advanceUser.addEventListener("click", () => {
+advanceUser?.addEventListener("click", () => {
   if (advanceUser.checked) {
     advanceUsers.style.maxHeight = advanceUsers.scrollHeight + 10 + "px";
   } else {

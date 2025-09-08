@@ -11,7 +11,7 @@ const addAlert = (msg, err = true) => {
   }, 3000);
 };
 
-const redirect = (location, time = 1000) => {
+const redirect = (location, time = 2000) => {
   setTimeout(() => {
     window.location.href = location;
   }, time);
