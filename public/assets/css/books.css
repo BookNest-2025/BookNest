@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  row-gap: 30px;
   gap: 20px;
 }
 
@@ -18,7 +19,7 @@
 
 .book-shower .book-card {
   aspect-ratio: 2 / 3;
-  width: 95%;
+  width: 100%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -92,27 +93,32 @@
 @media screen and (min-width: 600px) {
   .book-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 
-  .book-book .book-title {
+  .book-grid .book-title {
     width: 93%;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .book-grid .book-title {
+@media screen and (min-width: 800px) {
+  .book-title {
     width: 95%;
   }
-}
-
-@media screen and (min-width: 800px) {
   .book-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .book-grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .book-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
   }
 }

@@ -66,7 +66,7 @@ h3 {
 p,
 a,
 li {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -145,11 +145,15 @@ input::placeholder {
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* Page wrapper */
+/* Page wrapper  */
 .page {
   width: 100%;
-  margin-top: 68px;
-  min-height: calc(100vh - 68px);
+  padding: 20px 30px 30px 20px;
+}
+
+.section-name {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* ---------------- DESKTOP OVERRIDES ---------------- */
@@ -182,7 +186,6 @@ input::placeholder {
 
   .page {
     margin-top: 85px;
-    min-height: calc(100vh - 85px);
-    padding: 0 50px;
+    padding: 20px 50px 50px 50px;
   }
 }
