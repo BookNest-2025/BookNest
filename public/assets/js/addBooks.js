@@ -12,15 +12,9 @@ form.addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.success) {
-        addAlert(data.message, false);
-      }
-      if (data.error) {
-        addAlert(data.error);
-      }
-      if (data.redirect) {
-        redirect(data.redirect);
-      }
+      if (data.success) addAlert(data.message, false);
+      if (data.error) addAlert(data.error);
+      if (data.redirect) redirect(data.redirect);
     })
     .catch((err) => {
       addAlert("Something went wrong. Please try again.");

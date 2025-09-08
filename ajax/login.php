@@ -11,16 +11,14 @@
   //tells browser server is sending json format data rather than plain html or text.
   header("Content-Type: application/json");
 
-  $response = ["success" => false, "error" => "","redirect" => ""];
+  $response = ["success" => false, "message" => "", "error" => "","redirect" => ""];
 
   try {
 
     // checks already login or not
     if (isset($_SESSION['email'])) {
-        $response['error'] = "Already logged in.";
-        $response['redirect'] = 'index.html';
-        echo json_encode($response);
-        exit();
+      $response['redirect'] = 'index.html';
+      throw new Exception('Already logged in.');
     }
 
     $email = $_POST['email'] ?? '';
@@ -28,16 +26,12 @@
 
     // checks all fields are filled or not
     if (!$email || !$password) {
-      $response['error'] = "Please fill in all fields.";
-      echo json_encode($response);
-      exit();
+      throw new Exception('Please fill in all fields.');
     }
 
     //checks if email is a valid email or not
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-      $response['error'] = "Email not valid.";
-      echo json_encode($response);
-      exit();
+      throw new Exception('Email not valid.');
     }
 
     $stmt = $pdo-> prepare("SELECT * FROM users WHERE email = :email");
@@ -46,18 +40,18 @@
 
     //checks not available user or password is not match
     if (!$user || !password_verify($password, $user['password'])) {
-        $response['error'] = "Please enter a valid email & password.";
-        echo json_encode($response);
-        exit();
+        throw new Exception('Please enter a valid email & password.');
     }
     
     //success all
     $response["success"] = true;
+    $response["message"] = "Login successfully!";
     $_SESSION['user_type'] = $user['category'];
     $_SESSION['email'] = $email;
+    session_regenerate_id(true);
   }
   catch (Exception $e) {
-    $response['error'] = "Login failed. Please try again.";
+    $response['error'] = $e->getMessage();
   }
 
   
