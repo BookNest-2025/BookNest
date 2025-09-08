@@ -164,9 +164,14 @@
     font-size: 1.2rem;
   }
   .review-summary{
-  display: flex;
-  justify-content: flex-end;
-flex-direction: row;  
+    max-width: 1200px;
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  max-height: 300px; 
   }
 
   .review-btn {
