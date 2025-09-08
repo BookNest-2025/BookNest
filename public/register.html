@@ -1,63 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BookNest - Register</title>
-  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="./assets/css/root.css" />
-  <link rel="stylesheet" href="./assets/css/loginAndRegister.css" />
-</head>
-<body>
-  <div class="page page-register">
-    <div class="register">
-      <form id="registerForm">
-        <h2>Hello! Welcome👋</h2>
-        <h3>Register</h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookNest - Register</title>
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/loginAndRegister.css" />
+  </head>
+  <body>
+    <div class="alert"></div>
+    <div class="page page-register">
+      <div class="register">
+        <form id="registerForm">
+          <h2>Hello! Welcome👋</h2>
+          <h3>Register</h3>
 
-        <div class="input-box">
-          <input type="text" name="email" required placeholder="Enter a Valid Email"/>
-          <button tabindex="-1" type="button"><i class='bx bxs-envelope'></i> </button>
-          <span class="input-type"><p>Email</p></span>
-        </div>
-
-        <div class="input-box">
-          <input id="passIn" type="password" name="password" required placeholder="Enter a Strong Password" />
-          <button tabindex="-1" id="passBtn" type="button" onclick="toggleView()"><i class="bx bxs-eye-slash"></i></button>
-          <span class="input-type"><p>Password</p></span>
-        </div>
-
-        <div class="input-box">
-          <input id="passInC" type="password" name="passwordC" required placeholder="Confirm Password" />
-          <button tabindex="-1" id="passBtnC" type="button" onclick="toggleViewC()"><i class="bx bxs-eye-slash"></i></button>
-          <span class="input-type"><p>Confirm Password</p></span>
-        </div>
-
-        <div class="input-box">
-          <label><input class="radio" type="checkbox" name="advance-user" value="true" id="advance-user"><p>Advance user?</p></label>
-          <div class="advance-users">
-            <label><input class="radio" type="radio" name="user" value="s"><p>Shop</p></label>
-            <label><input class="radio" type="radio" name="user" value="d"><p>Delivery Partner</p></label>
+          <div class="input-box">
+            <input
+              type="text"
+              name="email"
+              required
+              placeholder="Enter a Valid Email" />
+            <button tabindex="-1" type="button">
+              <i class="bx bxs-envelope"></i>
+            </button>
+            <span class="input-type"><p>Email</p></span>
           </div>
-        </div>
 
-        <p class="error-message" id="errorMsg"></p>
+          <div class="input-box">
+            <input
+              id="passIn"
+              type="password"
+              name="password"
+              required
+              placeholder="Enter a Strong Password" />
+            <button
+              tabindex="-1"
+              id="passBtn"
+              type="button"
+              onclick="toggleView()">
+              <i class="bx bxs-eye-slash"></i>
+            </button>
+            <span class="input-type"><p>Password</p></span>
+          </div>
 
-        <button type="submit" class="btn"><p>Signup</p></button>
+          <div class="input-box">
+            <input
+              id="passInC"
+              type="password"
+              name="passwordC"
+              required
+              placeholder="Confirm Password" />
+            <button
+              tabindex="-1"
+              id="passBtnC"
+              type="button"
+              onclick="toggleViewC()">
+              <i class="bx bxs-eye-slash"></i>
+            </button>
+            <span class="input-type"><p>Confirm Password</p></span>
+          </div>
 
-        <div class="move-links">
-          <p>
-            <a href="login.php">
-              Already have an account? <u>Signin</u>
-            </a>
-          </p>
-        </div>
-      </form>
+          <div class="input-box">
+            <label
+              ><input
+                class="radio"
+                type="checkbox"
+                name="advance-user"
+                value="true"
+                id="advance-user" />
+              <p>Advance user?</p></label
+            >
+            <div class="advance-users">
+              <label
+                ><input class="radio" type="radio" name="user" value="s" />
+                <p>Shop</p></label
+              >
+              <label
+                ><input class="radio" type="radio" name="user" value="d" />
+                <p>Delivery Partner</p></label
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn"><p>Signup</p></button>
+
+          <div class="move-links">
+            <p>
+              <a href="login.html"> Already have an account? <u>Signin</u> </a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script src="./assets/js/register.js"></script>
-  <script src="./assets/js/login&register.js"></script>
-</body>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/register.js"></script>
+    <script src="./assets/js/login&register.js"></script>
+  </body>
 </html>
-<img src="../ajax/register.php" alt="">

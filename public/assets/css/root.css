@@ -148,7 +148,7 @@ input::placeholder {
 /* Page wrapper  */
 .page {
   width: 100%;
-  padding: 20px 30px 30px 20px;
+  padding: 20px 30px 20px 30px;
 }
 
 .section-name {
@@ -187,5 +187,33 @@ input::placeholder {
   .page {
     margin-top: 85px;
     padding: 20px 50px 50px 50px;
+  }
+}
+
+/* alert */
+
+.alert {
+  position: absolute;
+  z-index: 1000;
+  top: 100px;
+  right: -100%;
+  background: rgba(255, 0, 0, 0.8);
+  padding: 20px 30px;
+  border-radius: 20px;
+  max-width: 100%;
+  transition: 1s;
+}
+
+.alert .alert-message {
+  color: var(--color-text-secondary);
+}
+
+.alert.active {
+  right: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .alert.active {
+    right: 50px;
   }
 }

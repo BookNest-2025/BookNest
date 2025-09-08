@@ -1,8 +1,7 @@
 const form = document.getElementById("registerForm");
-const errorMsg = document.getElementById("errorMsg");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); // prevent page reload
+  e.preventDefault();
 
   const formData = new FormData(form);
   console.log(formData);
@@ -14,13 +13,20 @@ form.addEventListener("submit", function (e) {
     .then((data) => {
       console.log(data);
       if (data.success) {
-        window.location.href = "login.html";
-      } else {
-        errorMsg.textContent = data.error;
+        addAlert(
+          "Registerd Successfully!./n Directing to Login page...",
+          false
+        );
+        redirect("login.html");
+      } else if (data.error) {
+        addAlert(data.error);
+      } else if (data.redirect) {
+        addAlert(data.error);
+        redirect(data.redirect);
       }
     })
     .catch((err) => {
-      errorMsg.textContent = "Something went wrong. Please try again.";
+      addAlert("Something went wrong. Please try again.");
       console.error(err);
     });
 });
