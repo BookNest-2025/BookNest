@@ -17,10 +17,8 @@ $response = ["success" => false, "error" => "", "redirect" => ""];
 try {
     //checks if user already logged in or not?
     if (isset($_SESSION['email'])) {
-        $response['error'] = "Already logged in. Please log out to register.";
         $response['redirect'] = 'index.html';
-        echo json_encode($response);
-        exit();
+        throw new Exception('Already logged in. Please log out to register.');
     }
 
     $email = $_POST['email'] ?? '';
@@ -30,32 +28,24 @@ try {
 
     // checks any values are empty or not?
     if (!$email || !$password || !$passwordC) {
-        $response['error'] = "Please fill in all fields.";
-        echo json_encode($response);
-        exit();
+        throw new Exception('Please fill in all fields.');
     }
 
     // checks paswords are equal or not?
     if ($password !== $passwordC) {
-        $response['error'] = "Passwords do not match.";
-        echo json_encode($response);
-        exit();
+        throw new Exception('Passwords do not match.');
     }
 
     // checks email is valid or not?
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $response['error'] = "Email not valid.";
-        echo json_encode($response);
-        exit();
+        throw new Exception('Email not valid.');
     }
 
     // checks email is already taken or not?
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->execute(['email' => $email]);
     if ($stmt->fetch()) {
-        $response['error'] = "Email already taken.";
-        echo json_encode($response);
-        exit();
+        throw new Exception('Email already taken.');
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
@@ -67,26 +57,30 @@ try {
         default => 'customers',
     };
 
-    // Use transaction for atomic insert. all queries after will not be permenetly written until use commit.
-    $pdo->beginTransaction();
+    try {// Use transaction for atomic insert. all queries after will not be permenetly written until use commit.
+        $pdo->beginTransaction();
 
-    // Insert into users
-    $stmt = $pdo->prepare("INSERT INTO users (email, password, category) VALUES (:email, :password, :category)");
-    $stmt->execute(['email' => $email, 'password' => $passwordHash, 'category' =>  $category]);
+        // Insert into users
+        $stmt = $pdo->prepare("INSERT INTO users (email, password, category) VALUES (:email, :password, :category)");
+        $stmt->execute(['email' => $email, 'password' => $passwordHash, 'category' =>  $category]);
 
-    // Insert into specific category table
-    $stmt = $pdo->prepare("INSERT INTO {$category} (email) VALUES (?)");
-    $stmt->execute([$email]);
+        // Insert into specific category table
+        $stmt = $pdo->prepare("INSERT INTO {$category} (email) VALUES (:email)");
+        $stmt->execute(["email" => $email]);
 
-    $pdo->commit();
-    $response['success'] = true;
+        $pdo->commit();
+        $response['success'] = true;
+        $response['message'] = 'Registerd Successfully!';
+        $response['redirect'] = 'login.html';
+    } 
+    catch (PDOException $e) {
+        // if any error occures after transaction process start, rollback them to avoid saving missing data.
+        $pdo->rollBack();
+        throw new Exception("Registration faild! Please try again.");
+    }
 
 } catch (Exception $e) {
-    // if any error occures after transaction process start, rollback them to avoid missing data.
-    if ($pdo->inTransaction()) {
-        $pdo->rollBack();
-    }
-    $response['error'] = "Registration failed. Please try again.";
+    $response['error'] = $e->getMessage();
 }
 
 echo json_encode($response);
