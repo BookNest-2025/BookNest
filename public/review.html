@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Reviews</title>
+  <link rel="stylesheet" href="./assets/css/root.css" />
+  <link rel="stylesheet" href="./assets/css/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/review.css" />
+
+</head>
+
+<body>
+
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src=".//assets//images//logo.png" alt="Logo" />
+    </div>
+
+    <ul class="navbar-center">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Books</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Admin</a></li>
+    </ul>
+
+    <div class="navbar-right">
+      <div class="icon-row">
+        <i class="fa fa-search" id="search-icon"></i>
+        <a href="#"><i class="fa fa-user"></i></a>
+        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+      </div>
+    </div>
+  </nav>
+  <div class="search-panel" id="search-panel">
+    <input type="text" id="search-input-field" placeholder="Search books..." />
+  </div>
+  <div id="toggle-handler-search"></div>
+  <div id="toggle-handler-menu"></div>
+
+  <div class="navbar-background"></div>
+
+  <script src="./assets/js/navbar.js"></script>
+
+  
+  <section class="reviews-container">
+    <h2>Customer Reviews</h2>
+
+
+    <div class="review-summary">
+      <div class="ratings-breakdown">
+        <div class="bar"><span>5</span> <i class="fa-regular fa-star"></i>
+          <div class="progress">
+            <div class="fill" style="width:100%"></div>
+          </div> <span>2</span>
+        </div>
+        <div class="bar"><span>4</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>3</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>2</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>1</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+      </div>
+
+      <div class="avg-rating">
+        <p class="number">5</p>
+        <p class="stars"><i class="fa-regular fa-star"></i></p>
+        <p>Based on 2 reviews</p>
+      </div>
+
+      <button class="review-btn">Write A Review</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="review-filters">
+      <select>
+        <option>Rating</option>
+        <option>Highest</option>
+        <option>Lowest</option>
+      </select>
+      <label>
+        <input type="checkbox"> With media
+      </label>
+      <div class="sort">Sort by: <select>
+          <option>Most recent</option>
+          <option>Most helpful</option>
+        </select></div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="reviews-list">
+     
+        <div class="review-card">
+          <div class="review-box">
+            <div class="client-profile">
+              <img src="images/t1.jpg" alt="client"/>
+              <div class="profile-text">
+                <strong>Niki Minaj</strong>
+                <span>Client</span>
+              </div>
+            </div>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          </div>
+        </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="stars"><i class="fa-regular fa-star"></i></span>
+          <span class="date">08/06/25</span>
+        </div>
+        <h3>My thoughts & feelings of this phase of life!</h3>
+        <p>
+          I love Camille Fronk Olson! I love that she writes exactly what we all need to hear and be reminded
+          it will be okay. Even if it doesn’t go the way we expected!
+        </p>
+        <p class="reviewer">Emily B. us | <span class="verified">Verified Reviewer</span></p>
+        <div class="helpful">
+          Was this review helpful?
+          <button>👍 17</button>
+          <button>👎 0</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+    <section class="book-list">
+  
+  
+    <div class="book-card">
+      <img src="./assets/images/book1.jpg" alt="Book 1">
+      <div class="book-info">
+        <p class="book-title">The Midnight Library</p>
+        <p class="price">$15.99</p>
+        <div class="rating">
+          <i class="fa-regular fa-star"></i>
+          <span>(4.2/5)</span>
+        </div>
+        <p class="reviews">320 reviews</p>
+  
+  
+        <div class="review-summary">
+          <div class="review-bar"><span>5<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:80%"></div>
+            </div>80%
+          </div>
+          <div class="review-bar"><span>4<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:60%"></div>
+            </div>60%
+          </div>
+          <div class="review-bar"><span>3<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:30%"></div>
+            </div>30%
+          </div>
+          <div class="review-bar"><span>2<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:10%"></div>
+            </div>10%
+          </div>
+          <div class="review-bar"><span>1<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:5%"></div>
+            </div>5%
+          </div>
+        </div>
+  
+        <a href="book-details.html" class="btn">View Details</a>
+      </div>
+    </div>
+  
+    <div class="book-card">
+      <img src="./assets/images/book2.jpg" alt="Book 2">
+      <div class="book-info">
+        <p class="book-title">Battle Drive</p>
+        <p class="price">$12.50</p>
+        <div class="rating">
+          <i class="fa-regular fa-star"></i>
+          <span>(4.0/5)</span>
+        </div>
+        <p class="reviews">210 reviews</p>
+  
+        <div class="review-summary">
+          <div class="review-bar"><span>5<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:70%"></div>
+            </div>70%
+          </div>
+          <div class="review-bar"><span>4<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:50%"></div>
+            </div>50%
+          </div>
+          <div class="review-bar"><span>3<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:20%"></div>
+            </div>20%
+          </div>
+          <div class="review-bar"><span>2<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:8%"></div>
+            </div>8%
+          </div>
+          <div class="review-bar"><span>1<i class="fa-regular fa-star"></i></span>
+            <div class="progress">
+              <div style="width:3%"></div>
+            </div>3%
+          </div>
+        </div>
+  
+        <a href="book-details.html" class="btn">View Details</a>
+      </div>
+    </div>
+  
+  </section>
+
+</body>
+
+</html>

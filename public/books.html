@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details</title>
+  <link rel="stylesheet" href="./assets/css/root.css" />
+  <link rel="stylesheet" href="./assets/css/navbar.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/books.css">
+  <link rel="stylesheet" href="./assets/css/review.css" />
+
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src=".//assets//images//logo.png" alt="Logo" />
+    </div>
+
+    <ul class="navbar-center">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Books</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Admin</a></li>
+    </ul>
+
+    <div class="navbar-right">
+      <div class="icon-row">
+        <i class="fa fa-search" id="search-icon"></i>
+        <a href="#"><i class="fa fa-user"></i></a>
+        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+      </div>
+    </div>
+  </nav>
+  <div class="search-panel" id="search-panel">
+    <input type="text" id="search-input-field" placeholder="Search books..." />
+  </div>
+  <div id="toggle-handler-search"></div>
+  <div id="toggle-handler-menu"></div>
+
+  <div class="navbar-background"></div>
+
+  <script src="./assets/js/navbar.js"></script>
+
+
+  <div class="container">
+    <!-- Left Section: Book Cover -->
+    <div class="book-cover">
+      <img src="./assets/images/book.jpg" alt="But If Not Book Cover">
+    </div>
+
+    <!-- Right Section: Book Details -->
+    <div class="book-details">
+      <h1>The Midnight Library</h1>
+      <h3>The multi-million copy bestseller</h3>
+      <p class="product-id">no. PR00001364</p>
+      <div class="ratingR">★★★★★</div>
+      <p class="authorA">MATT HAIG</p>
+
+      <p class="priceP">$17.99 - $18.99</p>
+
+      <div class="options">
+        <button class="option">Hardcover<br>$17.99</button>
+        <button class="option">Audiobook (Digital)<br>$12.99</button>
+        <button class="option">eBook<br>$10.79</button>
+      </div>
+
+      <div class="availability">
+        Availability: <span>Select Styles for Availability</span>
+      </div>
+
+      <div class="cart-section">
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <button class="add-to-cart">ADD TO CART</button>
+      </div>
+
+      <div class="subscription">
+        <img src="bookshelf-logo.png" alt="Bookshelf+">
+        <p><strong>Unlimited access to 4000+ Audiobooks & eBooks</strong></p>
+        <a href="#">Learn More</a>
+      </div>
+
+      <p class="shipping">
+        Free Shipping on orders $49+ for standard domestic US.<br>
+        Surcharges still apply for large items.
+      </p>
+    </div>
+  </div>
+
+  <div class="book-description">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, quae excepturi aspernatur cum, accusantium
+      id vero et quos, aliquid tenetur corporis facere corrupti doloribus magni porro. Animi culpa qui quisquam.</p>
+  </div>
+
+  <section class="reviews-container">
+    <h2>Customer Reviews</h2>
+
+
+    <div class="review-summary">
+      <div class="ratings-breakdown">
+        <div class="bar"><span>5</span> <i class="fa-regular fa-star"></i>
+          <div class="progress">
+            <div class="fill" style="width:100%"></div>
+          </div> <span>2</span>
+        </div>
+        <div class="bar"><span>4</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>3</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>2</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+        <div class="bar"><span>1</span> <i class="fa-regular fa-star"></i>
+          <div class="progress"></div> <span>0</span>
+        </div>
+      </div>
+
+      <div class="avg-rating">
+        <p class="number">5</p>
+        <p class="stars"><i class="fa-regular fa-star"></i></p>
+        <p>Based on 2 reviews</p>
+      </div>
+
+      <button class="review-btn">Write A Review</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="review-filters">
+      <select>
+        <option>Rating</option>
+        <option>Highest</option>
+        <option>Lowest</option>
+      </select>
+      <label>
+        <input type="checkbox"> With media
+      </label>
+      <div class="sort">Sort by: <select>
+          <option>Most recent</option>
+          <option>Most helpful</option>
+        </select></div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="reviews-list">
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="stars"><i class="fa-regular fa-star"></i></span>
+          <span class="date">08/06/25</span>
+        </div>
+        <h3>My thoughts & feelings of this phase of life!</h3>
+        <p>
+          I love Camille Fronk Olson! I love that she writes exactly what we all need to hear and be reminded
+          it will be okay. Even if it doesn’t go the way we expected!
+        </p>
+        <p class="reviewer">Emily B. us | <span class="verified">Verified Reviewer</span></p>
+        <div class="helpful">
+          Was this review helpful?
+          <button>👍 17</button>
+          <button>👎 0</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>BookNest</h3>
+        <br />
+        <p>Where Stories Find A Home</p>
+        <p>
+          Dive into a world of imagination with BookNest <br />
+          your cozy corner for books you love, from timeless classics to
+          trending titles. Curated with care for every kind of reader.
+        </p>
+        <br />
+        <div class="quick-social-media">
+          <ul>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Links</h3>
+        <div class="quick-media">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <br />
+        <p>Telephone Number :</p>
+        <p>+94 77 659 9189</p>
+        <p>Address :</p>
+        <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+        <br />
+      </div>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 BookNest. All rights reserved.</p>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Cookie Policy</a></li>
+    </ul>
+  </div>
+
+</body>
+
+</html>

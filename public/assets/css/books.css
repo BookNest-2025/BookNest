@@ -1,0 +1,141 @@
+  body {
+    font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    gap: 150px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .book-cover img {
+    width: 400px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .book-details {
+    max-width: 700px;
+  }
+
+  .book-details h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .book-details h3 {
+    font-weight: normal;
+    color: #666;
+    margin-top: 8px;
+  }
+
+  .product-id {
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  .ratingR {
+    font-size: 1.2rem;
+    color: goldenrod;
+    margin: 8px 0;
+  }
+
+  .authorA {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .priceP {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .option {
+    background: #f8f8f8;
+    border: 1px solid #e5dfe6;
+    padding: 10px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .option:hover {
+    background: #ecb3f2;
+  }
+
+  .availability {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .cart-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .add-to-cart {
+    background: var(--color-secondary);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    flex: 1;
+  }
+
+  .add-to-cart:hover {
+    background: #b666f3;
+  }
+
+  .subscription {
+    background: var(--color-secondary);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .subscription img {
+    width: 120px;
+    display: block;
+    margin: auto;
+  }
+
+  .subscription a {
+    color: #cd92e7;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .shipping {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .book-description{
+    margin: 50px auto;
+  }
+  .book-description p{
+     font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    padding: 20px;
+  }
+  .footer{
+    margin-top: 10%;
+    
+  }
