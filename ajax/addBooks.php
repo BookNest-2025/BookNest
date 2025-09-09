@@ -76,7 +76,7 @@ try {
         
         $pdo->commit();
         $response['success'] = true;
-        $response['message'] = 'Book Added Successfully!';
+        $response['message'] = 'Book Added Successfully!.<br>Directing to Homepage...';
         $response['redirect'] = 'index.html';
     }
     catch (PDOException $e) {

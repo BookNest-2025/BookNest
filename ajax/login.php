@@ -45,7 +45,8 @@
     
     //success all
     $response["success"] = true;
-    $response["message"] = "Login successfully!";
+    $response["redirect"] = "index.html";
+    $response["message"] = "Login successfully!.<br>Directing to the Homepage...";
     $_SESSION['user_type'] = $user['category'];
     $_SESSION['email'] = $email;
     session_regenerate_id(true);

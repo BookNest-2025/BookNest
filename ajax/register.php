@@ -70,7 +70,7 @@ try {
 
         $pdo->commit();
         $response['success'] = true;
-        $response['message'] = 'Registerd Successfully!';
+        $response['message'] = 'Registerd Successfully!<br>Directiong to Login page...';
         $response['redirect'] = 'login.html';
     } 
     catch (PDOException $e) {

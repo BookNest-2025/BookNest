@@ -22,8 +22,8 @@ const logout = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        addAlert(`Logout Successfully!<br>Directing to the Homepage...`, false);
-        redirect("index.html");
+        addAlert(data.message, false);
+        redirect(data.redirect);
       }
     })
     .catch((err) => console.error("Logout failed:", err));

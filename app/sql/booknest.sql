@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 31, 2025 at 06:31 PM
+-- Generation Time: Sep 09, 2025 at 07:56 AM
 -- Server version: 8.0.43-0ubuntu0.24.04.1
 -- PHP Version: 8.3.6
 
@@ -47,13 +47,21 @@ CREATE TABLE `books` (
   `b_id` int NOT NULL,
   `title` varchar(150) NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `rating` decimal(10,2) DEFAULT NULL,
+  `rating` decimal(10,2) DEFAULT '0.00',
+  `img_path` varchar(200) DEFAULT NULL,
   `quantity` int NOT NULL,
   `category` varchar(20) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `state` tinyint(1) NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT '1',
   `s_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`b_id`, `title`, `price`, `rating`, `img_path`, `quantity`, `category`, `description`, `state`, `s_id`) VALUES
+(7, 'ABC', 1500.00, 0.00, '../public/uploads/1757404559_3.jpg', 10, 'Education', 'lorem njabj hshgnabb vshav vhcavhcva', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -64,17 +72,6 @@ CREATE TABLE `books` (
 CREATE TABLE `book_authors` (
   `b_id` int NOT NULL,
   `author_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_images`
---
-
-CREATE TABLE `book_images` (
-  `b_id` int NOT NULL,
-  `image_url` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -117,16 +114,6 @@ CREATE TABLE `customers` (
   `telno` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`c_id`, `email`, `name`, `adress`, `telno`) VALUES
-(1, 'sanira.adesha@gmail.com', NULL, NULL, NULL),
-(3, 's123@gmail.com', NULL, NULL, NULL),
-(4, 's1123@gmail.com', NULL, NULL, NULL),
-(5, 's1213@gmail.com', NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -140,14 +127,6 @@ CREATE TABLE `delevery_partners` (
   `adress` varchar(150) DEFAULT NULL,
   `telno` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `delevery_partners`
---
-
-INSERT INTO `delevery_partners` (`d_id`, `email`, `name`, `adress`, `telno`) VALUES
-(1, 'saascac@gmail.com', NULL, NULL, NULL),
-(2, 'sanira12@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,8 +160,7 @@ CREATE TABLE `shops` (
 --
 
 INSERT INTO `shops` (`s_id`, `email`, `name`, `adress`, `telno`) VALUES
-(1, 'sanira.deneth2003@gmail.com', NULL, NULL, NULL),
-(2, '12sascbh@gmail.com', NULL, NULL, NULL);
+(6, 's123@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -201,18 +179,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`email`, `password`, `category`) VALUES
-('12sascbh@gmail.com', '$2y$10$P7AoqA6.5vcNah/qx9d9WOGZEUQozGkhomhTP1t7/by70X6n1Zeem', 'shops'),
-('12sasscacbh@gmail.com', '$2y$10$dlf/xG7JZJrrbdH82puEPeW3dcUA.lsvEN7ZWT03vmPj77IkITbgy', 'delivery_partners'),
-('s1123@gmail.com', '$2y$10$x6eNf/7.lD5c0kXZojp2POeRiRGg8.T2UbpzTQw8Bpfoo3q.95l/i', 'customers'),
-('s1213@gmail.com', '$2y$10$n6xPKAfbWGiJxnw1vtR0xe9wHw9WQ8mUHKpb2PVdphNiNz/.86q.C', 'customers'),
-('s123@gmail.com', '$2y$10$iY35E19u0YnTJEdDD2NihulTtGnD1euPTYvdqw95RJhfEP9to0nHu', 'customers'),
-('saascac@gmail.com', '$2y$10$rby2Fh7daxrw/uQcWmQ3t.r65Hig0dcJipODwfKNKvpwqpUrjemzO', 'delevery_partners'),
-('sanira.adesha@gmail.com', '$2y$12$UIG572jSY4R2sHmRHjVMxeSD.b.jorVeUfZozDqDQsBRado0W0fSO', 'customers'),
-('sanira.deneth2003@gmail.com', '$2y$10$hIqJgoexguOX0JmQ9jfNyOHhSK.LOBhAkB/zNr2vyWRsh/EpVPk/S', 'shops'),
-('sanira12@gmail.com', '$2y$10$Gp51Ldga6YJCM7qq5ZBnreK2juQq.yby.j.UUJeadiXPVW4xq6yBO', 'delevery_partners'),
-('yadesha1kum2ara@gmail.com', '$2y$10$rMsdPIheMVcsn5UVk5rzgOauuDYB8axwSyNOHSEv9.t31oBrslpP2', 'delivery_partners'),
-('yadesha1kumara@gmail.com', '$2y$10$e1AhT/vEFsbN82MaPp39huZUlfXxiEvA/gUCas.D0uaFQHdQUcNOq', 'delivery_partners'),
-('yadeshakumara@gmail.com', '$2y$10$9QVf4o4oJI12YTtOYpAFE.Z8XSCmKbUof67OR35W0pJXmu3oW3TXC', 'delivery_partners');
+('s123@gmail.com', '$2y$10$aUfn4oSA8N1gGRj.vaNPL.kaApX99FaqOJSd/wCkIoMdV96lsOTk6', 'shops');
 
 --
 -- Indexes for dumped tables
@@ -236,12 +203,6 @@ ALTER TABLE `books`
 -- Indexes for table `book_authors`
 --
 ALTER TABLE `book_authors`
-  ADD KEY `b_id` (`b_id`);
-
---
--- Indexes for table `book_images`
---
-ALTER TABLE `book_images`
   ADD KEY `b_id` (`b_id`);
 
 --
@@ -305,13 +266,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `b_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `b_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `c_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `c_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `delevery_partners`
@@ -323,7 +284,7 @@ ALTER TABLE `delevery_partners`
 -- AUTO_INCREMENT for table `shops`
 --
 ALTER TABLE `shops`
-  MODIFY `s_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `s_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -346,12 +307,6 @@ ALTER TABLE `books`
 --
 ALTER TABLE `book_authors`
   ADD CONSTRAINT `book_authors_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `books` (`b_id`);
-
---
--- Constraints for table `book_images`
---
-ALTER TABLE `book_images`
-  ADD CONSTRAINT `book_images_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `books` (`b_id`);
 
 --
 -- Constraints for table `book_orders`
